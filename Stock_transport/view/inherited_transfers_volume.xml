@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inherited.transfers.volume" model="ir.ui.view">
+        <field name="name">inventory.view.form</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/div[@name='tracking']" position="after">
+                <div>
+                <field name="volume"></field>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
