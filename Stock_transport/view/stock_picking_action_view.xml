@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_picking_batch_gantt" model="ir.ui.view">
+        <field name="name">inventory.gantt.view</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="arch" type="xml">
+            <gantt date_start="starting_date" date_stop="stoping_date" string="Transport Operations" decoration-info = "state == 'draft'" decoration-success= "state == 'done'" default_group_by="dock_id,vehicle_id" default_scale="week" color="id">
+                <field name="vehicle_id"/>
+                <field name="state"/>
+            </gantt>
+        </field>
+    </record>
+    
+    <record id="stock_picking_batch_graph" model="ir.ui.view">
+        <field name="name">inventory.graph.view</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="arch" type="xml">
+            <graph string="Stock" type="bar">
+                <field name="scheduled_date" />
+                <field name="vehicle_category_id"/> 
+            </graph>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch.stock_picking_batch_action" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,kanban,graph,gantt</field>
+    </record>
+
+</odoo>

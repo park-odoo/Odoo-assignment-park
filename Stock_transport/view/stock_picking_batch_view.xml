@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inventory_view_form_inherit" model="ir.ui.view">
+        <field name="name">inventory.view.form.inherit</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="dock_id"/>
+                <field name="vehicle_id" placeholder="Third Party Provider"/>
+                <field name="vehicle_category_id" placeholder="e.g. Semi-truck"/>  
+                
+                <!-- For Doing progressbar with its total value-->
+                <label for='weight' invisible="not vehicle_category_id"/>
+                    <div class='d-flex flex-row gap-4' invisible="not vehicle_category_id">
+                        <div class='d-flex flex-row gap-1'>
+                            <field name='total_weight'/>
+                            <span>kg</span>
+                        </div>
+                        <field name='weight' widget='progressbar' />
+                    </div>
+
+                <label for='volume' invisible="not vehicle_category_id"/>
+                    <div class='d-flex flex-row gap-4' invisible="not vehicle_category_id">
+                        <div class='d-flex flex-row gap-1'>
+                            <field name='total_volume'/>
+                            <span>m³</span>
+                        </div>
+                        <field name='volume' widget='progressbar'/>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

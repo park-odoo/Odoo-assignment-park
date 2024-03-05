@@ -6,14 +6,17 @@
     'version': '1.1.21',
     'category': 'Transport',
     'author': 'odoo',
-    'depends': ['stock_picking_batch','fleet','stock','stock_delivery'],
+    'depends': ['stock_picking_batch','fleet'],
     'summary': 'This is Stock Transport services which is use for Transfer stock ine place to another',
     'auto_install': True,
     'installable': True,
     'license': 'LGPL-3',
     'data':[
-        'view/inherit_fleet_category.xml',
-        'view/inherited_stock_picking_batch.xml',
-        'view/inherited_transfers_volume.xml'
+        'security/ir.model.access.csv',
+        
+        'view/fleet_category_view.xml',
+        'view/stock_picking_inherit_view.xml',
+        'view/stock_picking_batch_view.xml',
+        'view/stock_picking_action_view.xml'
     ]
 }

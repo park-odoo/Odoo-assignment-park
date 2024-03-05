@@ -5,5 +5,10 @@ from odoo import fields,models,api
 
 class StockTransportDock(models.Model):
     _name = "stock.dock"
+    _description= "This for Diffrent Docks"
    
-    name = fields.Char('Dock')
+    name = fields.Char(string="Dock")
+    
+    _sql_constraints = [
+        ('unique_id', 'UNIQUE(name)', 'Dock must be unique!')
+    ]
