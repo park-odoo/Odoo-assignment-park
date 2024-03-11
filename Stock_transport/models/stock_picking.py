@@ -13,3 +13,4 @@ class StockPickVolume(models.Model):
     def _compute_volume(self):
         for record in self:
             record.pick_volume = sum(line.product_id.volume * line.quantity for line in record.move_ids)
+
